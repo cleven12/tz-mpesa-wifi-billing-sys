@@ -1,0 +1,27 @@
+version: "3.9"
+
+services:
+  web:
+    build: ..
+    ports:
+      - "5000:8000"
+    env_file:
+      - ../.env
+    volumes:
+      - ../logs:/app/logs
+    depends_on:
+      - db
+    # TODO: add healthcheck
+
+  db:
+    image: postgres:15-alpine
+    environment:
+      POSTGRES_DB: wifi_billing
+      POSTGRES_USER: wifi_user
+      POSTGRES_PASSWORD: change_me
+    volumes:
+      - db_data:/var/lib/postgresql/data
+    # TODO: add healthcheck
+
+volumes:
+  db_data:
