@@ -1,0 +1,16 @@
+/*
+ * style.css — Main stylesheet for WiFi Billing System
+ * Tanzania M-Pesa WiFi Hotspot
+ *
+ * Sections to implement:
+ *   - CSS custom properties (color palette, spacing scale)
+ *   - Reset / base element styles
+ *   - Layout: .container, .card
+ *   - Login form styles
+ *   - Payment page styles
+ *   - Payment success / failure pages
+ *   - Spinner / loading indicator
+ *   - Buttons: .btn-primary, .btn-secondary, .btn-danger
+ *   - Alerts / flash messages
+ *   - Footer
+ */

@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+{% block title %}Complete Payment — M-Pesa{% endblock %}
+{% block content %}
+  <!-- TODO: Package summary, STK Push trigger button, polling spinner, countdown timer -->
+{% endblock %}
+{% block extra_js %}
+<script src="{{ url_for('static', filename='js/payment.js') }}"></script>
+<script src="{{ url_for('static', filename='js/websocket.js') }}"></script>
+{% endblock %}

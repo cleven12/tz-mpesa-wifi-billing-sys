@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+{% block title %}Devices — Admin{% endblock %}
+{% block extra_css %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/admin.css') }}">
+{% endblock %}
+{% block content %}
+  <!-- TODO: Table of connected devices with MAC, IP, owner, status, block action -->
+{% endblock %}
+{% block extra_js %}
+<script src="{{ url_for('static', filename='js/admin.js') }}"></script>
+{% endblock %}

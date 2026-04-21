@@ -1,0 +1,10 @@
+/*
+ * responsive.css — Mobile-first responsive overrides
+ *
+ * Breakpoints to implement (mobile-first):
+ *   - Default: mobile (< 576px)
+ *   - @media (min-width: 576px): small tablets
+ *   - @media (min-width: 768px): tablets
+ *   - @media (min-width: 992px): laptops
+ *   - @media (min-width: 1200px): desktops
+ */

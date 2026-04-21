@@ -1,0 +1,10 @@
+/*
+ * animations.css — CSS keyframe animations and transitions
+ *
+ * Animations to implement:
+ *   - @keyframes spin        — rotating spinner
+ *   - @keyframes fadeIn      — page/element fade-in
+ *   - @keyframes slideUp     — card slide-up on load
+ *   - @keyframes pulse       — payment-waiting pulse effect
+ *   - Utility classes: .fade-in, .slide-up, .spin
+ */

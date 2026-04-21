@@ -1,0 +1,1 @@
+"""Database initialisation package."""

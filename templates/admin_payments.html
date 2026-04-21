@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+{% block title %}Payments — Admin{% endblock %}
+{% block extra_css %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/admin.css') }}">
+{% endblock %}
+{% block content %}
+  <!-- TODO: Paginated payments table with status filter, receipt, amount, timestamp -->
+{% endblock %}
+{% block extra_js %}
+<script src="{{ url_for('static', filename='js/admin.js') }}"></script>
+{% endblock %}
