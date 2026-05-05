@@ -1,5 +1,12 @@
 """Payment routes — /api/payment/..."""
 
+# Currency used for all payments
+CURRENCY = "TZS"
+
+# Minimum and maximum payment amounts (TZS)
+MIN_AMOUNT = 100
+MAX_AMOUNT = 500_000
+
 from flask import Blueprint, request, jsonify
 
 payment_bp = Blueprint("payment", __name__, url_prefix="/api/payment")
