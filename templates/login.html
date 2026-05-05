@@ -1,8 +1,27 @@
 {% extends "base.html" %}
-{% block title %}Connect to WiFi{% endblock %}
+{% block title %}Login — WiFi Billing{% endblock %}
 {% block content %}
-  <!-- TODO: Phone input form, package selector, submit button -->
-{% endblock %}
-{% block extra_js %}
-<script src="{{ url_for('static', filename='js/payment.js') }}"></script>
+<div class="auth-container">
+  <h1>Login</h1>
+  <!-- TODO: flash messages block -->
+  <form method="POST" action="{{ url_for('auth.login') }}" id="login-form">
+    <div class="form-group">
+      <label for="phone">Phone Number</label>
+      <div class="phone-input-wrapper">
+        <span class="country-prefix">+255</span>
+        <input type="tel" id="phone" name="phone" required
+               pattern="[67][0-9]{8}" placeholder="7XXXXXXXX"
+               autocomplete="tel-national">
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="password">Password</label>
+      <input type="password" id="password" name="password" required
+             autocomplete="current-password" minlength="8">
+    </div>
+    <!-- TODO: implement remember-me -->
+    <button type="submit" class="btn btn-primary">Login</button>
+  </form>
+  <p><a href="{{ url_for('auth.register') }}">Create account</a></p>
+</div>
 {% endblock %}
