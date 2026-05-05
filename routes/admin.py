@@ -68,3 +68,31 @@ def list_logs():
     Query params: page, limit
     """
     raise NotImplementedError("TODO")
+
+
+@admin_bp.route("/health", methods=["GET"])
+def system_health():
+    """System health check — DB connectivity and router SSH reachability.
+
+    Returns: {database: ok|error, router: ok|error, version: str}
+    """
+    raise NotImplementedError("TODO")
+
+
+@admin_bp.route("/payments/export", methods=["GET"])
+def export_payments_csv():
+    """Export payments as CSV. Query params: from_date, to_date, status.
+
+    Returns: text/csv attachment.
+    """
+    raise NotImplementedError("TODO")
+
+
+@admin_bp.route("/stats", methods=["GET"])
+def dashboard_stats():
+    """Aggregate dashboard stats.
+
+    Returns: {total_users, active_sessions, revenue_today,
+              revenue_month, pending_payments}
+    """
+    raise NotImplementedError("TODO")
