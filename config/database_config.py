@@ -11,3 +11,7 @@ def get_database_url() -> str:
 def is_sqlite() -> bool:
     """Return True when the configured database is SQLite."""
     raise NotImplementedError("TODO")
+
+POOL_SIZE = 5
+MAX_OVERFLOW = 10
+POOL_TIMEOUT = 30
