@@ -39,3 +39,13 @@ Browser / Mobile App
                                             │
                                      MAC Whitelist added
 ```
+
+## Prerequisites
+
+| Dependency | Version |
+|---|---|
+| Python | 3.11+ |
+| PostgreSQL | 14+ (SQLite for dev) |
+| ngrok | 3.x |
+| ZLT X17U router | firmware ≥ 1.3 |
+| PesaPal account | sandbox or live |
