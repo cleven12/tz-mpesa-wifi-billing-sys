@@ -15,3 +15,13 @@ def is_sqlite() -> bool:
 POOL_SIZE = 5
 MAX_OVERFLOW = 10
 POOL_TIMEOUT = 30
+
+
+def is_postgres(database_url: str) -> bool:
+    """Return True when *database_url* starts with postgresql:// or postgres://."""
+    raise NotImplementedError("TODO")
+
+
+def get_engine_options(database_url: str) -> dict:
+    """Return SQLAlchemy engine kwargs appropriate for the given database URL."""
+    raise NotImplementedError("TODO")
