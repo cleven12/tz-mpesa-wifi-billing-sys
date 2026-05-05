@@ -55,3 +55,27 @@ a { color: var(--color-primary); text-decoration: none; }
 a:hover { text-decoration: underline; }
 
 img { max-width: 100%; height: auto; }
+
+/* ── Card Component ────────────────────────────────────────────────────────── */
+.card {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-card);
+  padding: var(--space-lg);
+}
+
+.package-card {
+  /* TODO: extend .card */
+  text-align: center;
+}
+
+.package-card .price {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--color-primary);
+}
+
+.stat-card {
+  /* TODO: extend .card */
+}
