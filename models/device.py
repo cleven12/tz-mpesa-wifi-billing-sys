@@ -52,5 +52,14 @@ class Device(db.Model):
         """Return all whitelisted / active devices for a user."""
         raise NotImplementedError("TODO")
 
+    @property
+    def is_active(self) -> bool:
+        """True when status is active or whitelisted."""
+        raise NotImplementedError("TODO")
+
+    def expire_session(self) -> None:
+        """Set status to active (no longer whitelisted) and clear session_expires_at."""
+        raise NotImplementedError("TODO")
+
     def __repr__(self) -> str:
         return f"<Device {self.mac_address}>"
