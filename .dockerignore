@@ -1,0 +1,14 @@
+venv/
+__pycache__/
+*.pyc
+*.pyo
+.env
+.git/
+.idea/
+*.db
+logs/
+tests/
+docs/
+*.md
+.editorconfig
+Makefile
