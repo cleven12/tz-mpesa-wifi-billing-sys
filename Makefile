@@ -32,3 +32,15 @@ db-seed:
 
 db-reset:
 	bash scripts/reset_db.sh
+
+.PHONY: docker-up docker-down clean
+
+docker-up:
+	docker compose -f docker/docker-compose.yml up --build -d
+
+docker-down:
+	docker compose -f docker/docker-compose.yml down
+
+clean:
+	find . -type d -name __pycache__ -exec rm -rf {} + 2>/dev/null; true
+	find . -name "*.pyc" -delete 2>/dev/null; true
