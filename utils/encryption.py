@@ -41,3 +41,7 @@ def decrypt_field(token: str, key: Optional[str] = None) -> str:
         key: Same key used during encrypt_field.
     """
     raise NotImplementedError("TODO")
+
+BCRYPT_ROUNDS = 12
+FERNET_KEY_ITERATIONS = 100_000
+FERNET_HASH_ALGORITHM = "SHA256"
