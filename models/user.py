@@ -70,5 +70,10 @@ class User(db.Model):
         """Restore status to active and commit."""
         raise NotImplementedError("TODO")
 
+    @staticmethod
+    def validate_phone(phone: str) -> bool:
+        """Return True when phone is a valid Tanzanian E.164 number (+255XXXXXXXXX)."""
+        raise NotImplementedError("TODO")
+
     def __repr__(self) -> str:
         return f"<User {self.phone} [{self.status}]>"
