@@ -26,3 +26,5 @@ def drop_db(app=None) -> None:
 
 if __name__ == "__main__":
     init_db()
+
+SCHEMA_VERSION = 1
