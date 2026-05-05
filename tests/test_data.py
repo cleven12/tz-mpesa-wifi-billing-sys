@@ -54,3 +54,8 @@ SAMPLE_PACKAGES = [
     {"id": 2, "name": "Standard (1 Day)", "price": 1000, "duration_seconds": 86400},
     {"id": 3, "name": "Premium (7 Days)", "price": 4000, "duration_seconds": 604800},
 ]
+
+
+def make_device_payload(mac="AA:BB:CC:DD:EE:FF", name="Test Device"):
+    """Return a valid device whitelist request payload dict."""
+    return {"mac_address": mac, "device_name": name}
