@@ -34,6 +34,8 @@ class Device(db.Model):
         index=True,
     )
 
+    session_expires_at = db.Column(db.DateTime, nullable=True)
+
     user = db.relationship("User", back_populates="devices")
 
     def to_dict(self) -> dict:
