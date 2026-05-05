@@ -37,5 +37,11 @@
   <script src="{{ url_for('static', filename='js/utils.js') }}"></script>
   <script src="{{ url_for('static', filename='js/main.js') }}"></script>
   {% block extra_js %}{% endblock %}
+  <!-- Loading overlay — show with JS while waiting for PesaPal redirect -->
+  <div id="loading-overlay" style="display:none;" aria-live="polite">
+    <div class="spinner" role="status">
+      <span class="visually-hidden">Processing payment…</span>
+    </div>
+  </div>
 </body>
 </html>
