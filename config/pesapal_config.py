@@ -18,6 +18,15 @@ class PesapalConfig:
     base_url: str = ""             # resolved from environment
 
 
+    @property
+    def is_sandbox(self) -> bool:
+        return self.environment == "sandbox"
+
+    def validate(self) -> None:
+        """Raise ValueError if consumer_key or consumer_secret is empty."""
+        raise NotImplementedError("TODO")
+
+
 def get_pesapal_config() -> PesapalConfig:
     """Build a PesapalConfig from environment variables."""
     raise NotImplementedError("TODO")
