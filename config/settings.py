@@ -7,6 +7,10 @@ load_dotenv()
 
 
 class BaseConfig:
+    RATELIMIT_DEFAULT = "200 per day;50 per hour"
+    RATELIMIT_STORAGE_URL = "memory://"
+    RATELIMIT_HEADERS_ENABLED = True
+
     SQLALCHEMY_ENGINE_OPTIONS = {
         "pool_pre_ping": True,
         "pool_recycle": 300,
