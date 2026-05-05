@@ -6,6 +6,9 @@ from tests.test_data import SAMPLE_MPESA_CALLBACK_SUCCESS, SAMPLE_MPESA_CALLBACK
 
 class TestInitiatePayment:
     def test_initiate_success(self, client, auth_headers):
+        # Arrange: authenticated user, pesapal_mock
+        # Act: POST /api/payment/initiate with package_id
+        # Assert: 200, redirect_url in response JSON
         raise NotImplementedError("TODO")
 
     def test_initiate_unauthenticated(self, client):
