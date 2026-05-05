@@ -2,3 +2,14 @@
 line-length = 100
 target-version = ["py311"]
 exclude = "venv|migrations"
+
+[tool.isort]
+profile = "black"
+line_length = 100
+skip_glob = ["venv/*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+python_files = ["test_*.py"]
+python_classes = ["Test*"]
+python_functions = ["test_*"]
