@@ -7,6 +7,24 @@ from typing import Optional
 logger = logging.getLogger(__name__)
 
 
+SMS_SENDER_ID = "WIFI-TZ"
+
+SMS_TEMPLATES = {
+    "payment_success": (
+        "Malipo ya {amount} TZS yamefanikiwa! Namba ya risiti: {confirmation_code}. "
+        "Pakiti: {package_name}. Karibu kwenye mtandao wetu."
+    ),
+    "payment_failed": (
+        "Malipo ya {amount} TZS yameshindwa. Tafadhali jaribu tena. "
+        "Wasiliana nasi kama tatizo linaendelea."
+    ),
+    "session_expiring": (
+        "Kipindi chako cha intaneti kitaisha baada ya dakika {minutes}. "
+        "Nunua pakiti mpya ili uendelee."
+    ),
+}
+
+
 class SMSService:
     """Send SMS messages via Africa's Talking."""
 
