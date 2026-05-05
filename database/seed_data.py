@@ -23,3 +23,16 @@ def seed_all() -> None:
 
 if __name__ == "__main__":
     seed_all()
+
+SAMPLE_PACKAGES = [
+    {"id": 1, "name": "Basic (1 Hour)",   "duration_seconds": 3600,   "price": 500},
+    {"id": 2, "name": "Standard (1 Day)", "duration_seconds": 86400,  "price": 1000},
+    {"id": 3, "name": "Premium (7 Days)", "duration_seconds": 604800, "price": 4000},
+]
+
+SAMPLE_ADMIN = {
+    "phone": "+255700000001",
+    "name": "Admin",
+    "password": "changeme123",
+    "status": "active",
+}
