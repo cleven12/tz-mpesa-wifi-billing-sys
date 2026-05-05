@@ -20,6 +20,11 @@ class RouterConfig:
     timeout: int = 10
 
 
+    def validate(self) -> None:
+        """Raise ValueError if host, ssh_user, or ssh_password is empty."""
+        raise NotImplementedError("TODO")
+
+
 def get_router_config() -> RouterConfig:
     """Build a RouterConfig from environment variables."""
     raise NotImplementedError("TODO")
