@@ -39,3 +39,14 @@ import re
 PHONE_TZ_REGEX = re.compile(r"^\+255[67]\d{8}$")
 PHONE_KE_REGEX = re.compile(r"^\+2547\d{8}$")
 MAC_REGEX = re.compile(r"^([0-9A-Fa-f]{2}:){5}[0-9A-Fa-f]{2}$")
+
+AMOUNT_MIN = 100
+AMOUNT_MAX = 500_000
+
+
+class ValidationError(ValueError):
+    """Raised by validator functions when input fails a rule."""
+
+    def __init__(self, field: str, message: str):
+        self.field = field
+        super().__init__(f"{field}: {message}")
