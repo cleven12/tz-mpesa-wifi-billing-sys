@@ -15,6 +15,11 @@ class RouterConnectionError(Exception):
 class RouterService:
     """SSH-based controller for the ZLT X17U router."""
 
+    DEFAULT_SSH_PORT = 22
+    DEFAULT_TIMEOUT = 10
+    CONNECTION_RETRIES = 3
+    RETRY_DELAY = 2
+
     def __init__(self) -> None:
         self.host: str = os.getenv("ROUTER_HOST", "192.168.1.1")
         self.username: str = os.getenv("ROUTER_SSH_USER", "admin")
