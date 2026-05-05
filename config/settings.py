@@ -7,6 +7,17 @@ load_dotenv()
 
 
 class BaseConfig:
+
+    @classmethod
+    def from_env(cls):
+        """Instantiate config from environment variables."""
+        raise NotImplementedError("TODO")
+
+    @classmethod
+    def validate(cls):
+        """Raise ValueError if required env vars are missing."""
+        raise NotImplementedError("TODO")
+
     """Shared defaults for all environments."""
 
     SECRET_KEY: str = os.getenv("SECRET_KEY", "dev-secret")
