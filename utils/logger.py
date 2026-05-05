@@ -27,3 +27,8 @@ def setup_request_logging(app) -> None:
 REQUEST_LOG_FORMAT = (
     "%(asctime)s | %(method)s %(path)s | %(status)s | %(duration).1fms"
 )
+
+
+def get_request_id() -> str:
+    """Return or generate a unique ID for the current request (for log correlation)."""
+    raise NotImplementedError("TODO")
