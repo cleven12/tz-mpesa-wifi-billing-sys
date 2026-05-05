@@ -1,12 +1,62 @@
 {% extends "base.html" %}
-{% block title %}Admin Dashboard{% endblock %}
-{% block extra_css %}
-<link rel="stylesheet" href="{{ url_for('static', filename='css/admin.css') }}">
-{% endblock %}
+{% block title %}Admin Dashboard — WiFi Billing{% endblock %}
 {% block content %}
-  <!-- TODO: Stats cards (total_users, today_revenue, active_sessions), charts placeholder -->
-{% endblock %}
-{% block extra_js %}
-<script src="{{ url_for('static', filename='js/admin.js') }}"></script>
-<script src="{{ url_for('static', filename='js/websocket.js') }}"></script>
+<div class="admin-layout">
+  <!-- Sidebar -->
+  <nav class="admin-sidebar">
+    <ul>
+      <li><a href="{{ url_for('admin.dashboard') }}">Dashboard</a></li>
+      <li><a href="{{ url_for('admin.users') }}">Users</a></li>
+      <li><a href="{{ url_for('admin.payments') }}">Payments</a></li>
+      <li><a href="{{ url_for('admin.devices') }}">Devices</a></li>
+      <li><a href="{{ url_for('admin.logs') }}">Audit Log</a></li>
+    </ul>
+  </nav>
+
+  <main class="admin-main">
+    <h1>Dashboard</h1>
+
+    <!-- Stats cards -->
+    <div class="stats-grid">
+      <div class="stat-card">
+        <h3>Total Users</h3>
+        <p class="stat-value" id="stat-users">—</p>
+      </div>
+      <div class="stat-card">
+        <h3>Active Sessions</h3>
+        <p class="stat-value" id="stat-sessions">—</p>
+      </div>
+      <div class="stat-card">
+        <h3>Revenue Today</h3>
+        <p class="stat-value" id="stat-revenue-today">—</p>
+      </div>
+      <div class="stat-card">
+        <h3>Revenue This Month</h3>
+        <p class="stat-value" id="stat-revenue-month">—</p>
+      </div>
+    </div>
+
+    <!-- Recent transactions -->
+    <section>
+      <h2>Recent Payments</h2>
+      <table class="data-table" id="recent-payments">
+        <thead>
+          <tr>
+            <th>Reference</th><th>Phone</th><th>Amount</th>
+            <th>Status</th><th>Date</th>
+          </tr>
+        </thead>
+        <tbody><!-- populated by admin.js --></tbody>
+      </table>
+    </section>
+
+    <!-- Charts placeholder -->
+    <section>
+      <h2>Revenue Chart</h2>
+      <div id="revenue-chart" style="min-height:300px;">
+        <!-- TODO: Chart.js canvas -->
+      </div>
+    </section>
+  </main>
+</div>
 {% endblock %}
