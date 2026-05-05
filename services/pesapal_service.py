@@ -124,6 +124,17 @@ class PesapalService:
         """
         raise NotImplementedError("TODO")
 
+    def _is_token_valid(self) -> bool:
+        """Return True when cached token exists and has not expired."""
+        raise NotImplementedError("TODO")
+
+    def _build_order_payload(self, merchant_reference: str, amount: float,
+                              currency: str, description: str, customer_email: str,
+                              customer_phone: str, first_name: str, last_name: str,
+                              country_code: str, ipn_id: str) -> dict:
+        """Assemble the dict body for SubmitOrderRequest."""
+        raise NotImplementedError("TODO")
+
     def handle_ipn_callback(self, order_tracking_id: str, order_merchant_reference: str) -> dict:
         """Process an incoming IPN notification from PesaPal.
 
