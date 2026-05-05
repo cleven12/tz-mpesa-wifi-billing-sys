@@ -11,3 +11,13 @@ A Flask-based WiFi hotspot billing system for Tanzania. Customers pay via
 automatically whitelisted on the router — granting timed internet access.
 
 **Stack:** Python 3.11 · Flask 3 · PostgreSQL · PesaPal v3 · ZLT X17U (SSH) · ngrok
+
+## Features
+
+- PesaPal v3 payment integration (M-Pesa, Tigo Pesa, Airtel Money)
+- Automatic MAC-address whitelisting via SSH after successful payment
+- JWT-secured REST API with role-based access (admin / customer)
+- Real-time payment status updates via SocketIO
+- Africa's Talking SMS notifications
+- Admin dashboard (users, payments, devices, audit log)
+- ngrok tunnel for local webhook development
