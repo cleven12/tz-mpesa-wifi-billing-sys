@@ -1,40 +1,50 @@
-"""Shared pytest fixtures for the entire test suite."""
+"""pytest fixtures shared across all test modules."""
 
 import pytest
-from app import create_app, db as _db
+from app import create_app
+from app import db as _db
 
 
 @pytest.fixture(scope="session")
 def app():
-    """Create a test-mode Flask application (in-memory SQLite)."""
-    _app = create_app("config.settings.TestingConfig")
+    """Create application with in-memory SQLite for the full test session."""
+    _app = create_app({
+        "TESTING": True,
+        "SQLALCHEMY_DATABASE_URI": "sqlite:///:memory:",
+        "SECRET_KEY": "test-secret",
+        "JWT_SECRET_KEY": "test-jwt-secret",
+        "WTF_CSRF_ENABLED": False,
+    })
     with _app.app_context():
         _db.create_all()
         yield _app
         _db.drop_all()
 
 
-@pytest.fixture(scope="function")
+@pytest.fixture
 def db(app):
-    """Yield a clean database session that rolls back after each test."""
+    """Wrap each test in a transaction that is rolled back afterward."""
     with app.app_context():
+        connection = _db.engine.connect()
+        transaction = connection.begin()
         yield _db
-        _db.session.rollback()
+        transaction.rollback()
+        connection.close()
 
 
-@pytest.fixture(scope="function")
+@pytest.fixture
 def client(app):
-    """Return a Flask test client."""
+    """Flask test client."""
     return app.test_client()
 
 
-@pytest.fixture(scope="function")
-def auth_headers(client, db):
-    """Register and log in a test user; return Authorization headers dict."""
-    raise NotImplementedError("TODO — register + login, return {'Authorization': 'Bearer ...'}")
+@pytest.fixture
+def auth_headers(client):
+    """JWT headers for a regular user. Returns Authorization dict."""
+    raise NotImplementedError("TODO: register user, login, return headers")
 
 
-@pytest.fixture(scope="function")
-def admin_headers(client, db):
-    """Register and log in an admin user; return Authorization headers dict."""
-    raise NotImplementedError("TODO")
+@pytest.fixture
+def admin_headers(client):
+    """JWT headers for an admin user."""
+    raise NotImplementedError("TODO: create admin, login, return headers")
