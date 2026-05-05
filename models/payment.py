@@ -1,4 +1,4 @@
-"""Payment model."""
+"""Payment model — one record per PesaPal order submission."""
 
 from datetime import datetime
 from app import db
@@ -7,20 +7,25 @@ from app import db
 class Payment(db.Model):
     __tablename__ = "payments"
 
+    STATUS_PENDING = "pending"
+    STATUS_COMPLETED = "completed"
+    STATUS_FAILED = "failed"
+    STATUS_TIMEOUT = "timeout"
+
     id = db.Column(db.Integer, primary_key=True)
     user_id = db.Column(db.Integer, db.ForeignKey("users.id"), nullable=False, index=True)
     phone = db.Column(db.String(20), nullable=False, index=True)
     amount = db.Column(db.Numeric(10, 2), nullable=False)
+    currency = db.Column(db.String(3), default="TZS")
     package_id = db.Column(db.Integer, nullable=True)
     status = db.Column(
         db.Enum("pending", "completed", "failed", "timeout", name="payment_status"),
         default="pending",
         index=True,
     )
-    mpesa_receipt = db.Column(db.String(50), nullable=True)
-    checkout_request_id = db.Column(db.String(255), unique=True, nullable=True)
-    merchant_request_id = db.Column(db.String(255), nullable=True)
-    result_code = db.Column(db.Integer, nullable=True)
+    order_tracking_id = db.Column(db.String(255), unique=True, nullable=True)
+    merchant_reference = db.Column(db.String(255), nullable=True, index=True)
+    confirmation_code = db.Column(db.String(50), nullable=True)
     result_description = db.Column(db.Text, nullable=True)
     created_at = db.Column(db.DateTime, default=datetime.utcnow, index=True)
     completed_at = db.Column(db.DateTime, nullable=True)
@@ -34,4 +39,4 @@ class Payment(db.Model):
         raise NotImplementedError("TODO")
 
     def __repr__(self) -> str:
-        return f"<Payment {self.id} {self.status}>"
+        return f"<Payment {self.merchant_reference} [{self.status}]>"
