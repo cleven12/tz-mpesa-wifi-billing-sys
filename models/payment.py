@@ -48,5 +48,15 @@ class Payment(db.Model):
         """Find a Payment by our internal merchant_reference."""
         raise NotImplementedError("TODO")
 
+    @property
+    def is_completed(self) -> bool:
+        """True when payment status is completed."""
+        raise NotImplementedError("TODO")
+
+    @property
+    def is_timed_out(self) -> bool:
+        """True when status is timeout or expires_at is in the past."""
+        raise NotImplementedError("TODO")
+
     def __repr__(self) -> str:
         return f"<Payment {self.merchant_reference} [{self.status}]>"
