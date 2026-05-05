@@ -52,5 +52,10 @@ class User(db.Model):
         """Look up a user by phone number, return None if not found."""
         raise NotImplementedError("TODO")
 
+    @classmethod
+    def get_by_id(cls, user_id: int) -> "User | None":
+        """Return user by primary key or None."""
+        raise NotImplementedError("TODO")
+
     def __repr__(self) -> str:
         return f"<User {self.phone} [{self.status}]>"
