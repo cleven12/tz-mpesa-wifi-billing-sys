@@ -1,4 +1,4 @@
-"""High-level payment orchestration (STK Push -> DB record -> router grant)."""
+"""High-level payment orchestration (PesaPal order -> DB record -> router grant)."""
 
 import logging
 from typing import Optional
@@ -7,15 +7,15 @@ logger = logging.getLogger(__name__)
 
 
 class PaymentService:
-    """Coordinates MPesaService, DeviceService, and Payment model."""
+    """Coordinates PesapalService, DeviceService, and Payment model."""
 
     def __init__(self) -> None:
-        pass  # TODO: instantiate MPesaService, DeviceService
+        pass  # TODO: instantiate PesapalService, DeviceService
 
     def create_pending_payment(
         self, user_id: int, phone: str, amount: float, package_id: int
     ) -> dict:
-        """Create a Payment row in pending state, send STK Push.
+        """Create a Payment row in pending state and submit a PesaPal order.
 
         Args:
             user_id: FK to users.id
@@ -24,29 +24,30 @@ class PaymentService:
             package_id: Selected WiFi package ID
 
         Returns:
-            dict with checkout_request_id and merchant_request_id.
+            dict with order_tracking_id and redirect_url (send redirect_url to client).
         """
         raise NotImplementedError("TODO")
 
-    def process_callback(self, callback_data: dict) -> bool:
-        """Handle M-Pesa callback: update Payment, create Transaction, grant access.
+    def process_ipn(self, order_tracking_id: str, merchant_reference: str) -> bool:
+        """Handle PesaPal IPN: verify status, update Payment, create Transaction, grant access.
 
         Args:
-            callback_data: Raw M-Pesa callback JSON.
+            order_tracking_id: PesaPal OrderTrackingId from IPN params.
+            merchant_reference: PesaPal OrderMerchantReference from IPN params.
 
         Returns:
             bool: True when payment was successful and access was granted.
         """
         raise NotImplementedError("TODO")
 
-    def get_payment_status(self, checkout_request_id: str) -> dict:
-        """Return current status for a payment identified by checkout_request_id.
+    def get_payment_status(self, order_tracking_id: str) -> dict:
+        """Return current status for a payment identified by order_tracking_id.
 
         Args:
-            checkout_request_id: M-Pesa CheckoutRequestID.
+            order_tracking_id: PesaPal OrderTrackingId.
 
         Returns:
-            dict with keys: status, receipt (optional), error (optional).
+            dict with keys: status, confirmation_code (optional), error (optional).
         """
         raise NotImplementedError("TODO")
 
