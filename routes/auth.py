@@ -73,3 +73,13 @@ def update_profile():
     Body JSON keys: name (optional), email (optional)
     """
     raise NotImplementedError("TODO")
+
+
+@auth_bp.route("/change-password", methods=["POST"])
+def change_password():
+    """Change authenticated user's password.
+
+    Body: {old_password: str, new_password: str}
+    Returns: {message: "Password updated"}
+    """
+    raise NotImplementedError("TODO")
