@@ -65,3 +65,15 @@ class SMSService:
     def send_payment_failure(self, phone: str, reason: str) -> bool:
         """Send a pre-composed payment-failure SMS."""
         raise NotImplementedError("TODO")
+
+    def bulk_send(self, recipients: list, message: str) -> dict:
+        """Send the same message to a list of phone numbers.
+
+        Args:
+            recipients: list of E.164 phone number strings.
+            message: Message body.
+
+        Returns:
+            dict with keys: sent (int), failed (int).
+        """
+        raise NotImplementedError("TODO")
