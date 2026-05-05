@@ -1,4 +1,4 @@
-"""Transaction model — one-to-one extension of Payment with M-Pesa metadata."""
+"""Transaction model — one-to-one with Payment; stores raw PesaPal callback."""
 
 from datetime import datetime
 from app import db
@@ -9,7 +9,7 @@ class Transaction(db.Model):
 
     id = db.Column(db.Integer, primary_key=True)
     payment_id = db.Column(db.Integer, db.ForeignKey("payments.id"), unique=True, nullable=False)
-    mpesa_transaction_id = db.Column(db.String(100), unique=True, nullable=True)
+    pesapal_confirmation_code = db.Column(db.String(100), unique=True, nullable=True)
     raw_callback_payload = db.Column(db.JSON, nullable=True)
     processing_notes = db.Column(db.Text, nullable=True)
     created_at = db.Column(db.DateTime, default=datetime.utcnow)
@@ -21,4 +21,4 @@ class Transaction(db.Model):
         raise NotImplementedError("TODO")
 
     def __repr__(self) -> str:
-        return f"<Transaction {self.id}>"
+        return f"<Transaction payment_id={self.payment_id}>"
