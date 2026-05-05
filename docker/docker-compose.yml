@@ -10,8 +10,13 @@ services:
     volumes:
       - ../logs:/app/logs
     depends_on:
-      - db
-    # TODO: add healthcheck
+      db:
+        condition: service_healthy
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8000/api/admin/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
 
   db:
     image: postgres:15-alpine
@@ -21,7 +26,11 @@ services:
       POSTGRES_PASSWORD: change_me
     volumes:
       - db_data:/var/lib/postgresql/data
-    # TODO: add healthcheck
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U wifi_user -d wifi_billing"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
 
 volumes:
   db_data:
