@@ -1,4 +1,4 @@
-"""Database models package. Import all models so Flask-Migrate can detect them."""
+"""Models package — import all ORM models from here for Flask-Migrate discovery."""
 
 from models.user import User
 from models.payment import Payment
