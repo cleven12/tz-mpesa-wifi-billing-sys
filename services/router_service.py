@@ -27,6 +27,15 @@ class RouterService:
         self.port: int = int(os.getenv("ROUTER_SSH_PORT", 22))
         self.timeout: int = int(os.getenv("ROUTER_SSH_TIMEOUT", 10))
 
+    def __enter__(self):
+        """Connect on context manager entry."""
+        self.connect()
+        return self
+
+    def __exit__(self, *_):
+        """Disconnect on context manager exit."""
+        raise NotImplementedError("TODO")
+
     def connect(self):
         """Open and return a paramiko SSHClient connected to the router.
 
