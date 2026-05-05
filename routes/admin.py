@@ -1,5 +1,13 @@
 """Admin routes — /api/admin/... (JWT + admin role required)."""
 
+# All admin routes require @admin_required decorator (utils/decorators.py).
+# Import it once implemented: from utils.decorators import admin_required
+
+# Default pagination settings
+DEFAULT_PAGE = 1
+DEFAULT_PER_PAGE = 25
+MAX_PER_PAGE = 100
+
 from flask import Blueprint, request, jsonify
 
 admin_bp = Blueprint("admin", __name__, url_prefix="/api/admin")
