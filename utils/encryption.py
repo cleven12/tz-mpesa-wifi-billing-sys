@@ -45,3 +45,8 @@ def decrypt_field(token: str, key: Optional[str] = None) -> str:
 BCRYPT_ROUNDS = 12
 FERNET_KEY_ITERATIONS = 100_000
 FERNET_HASH_ALGORITHM = "SHA256"
+
+
+def rotate_key(old_key: bytes, new_key: bytes, ciphertext: bytes) -> bytes:
+    """Decrypt with old_key, re-encrypt with new_key. Used for key rotation."""
+    raise NotImplementedError("TODO")
