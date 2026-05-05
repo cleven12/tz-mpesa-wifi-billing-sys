@@ -1,9 +1,31 @@
 {% extends "base.html" %}
-{% block title %}Complete Payment — M-Pesa{% endblock %}
+{% block title %}Buy WiFi — WiFi Billing{% endblock %}
 {% block content %}
-  <!-- TODO: Package summary, STK Push trigger button, polling spinner, countdown timer -->
-{% endblock %}
-{% block extra_js %}
-<script src="{{ url_for('static', filename='js/payment.js') }}"></script>
-<script src="{{ url_for('static', filename='js/websocket.js') }}"></script>
+<div class="payment-container">
+  <h1>Choose a Package</h1>
+
+  <!-- Package cards — populated by fetchPackages() in payment.js -->
+  <div class="packages-grid" id="packages-grid">
+    <!-- TODO: Jinja2 loop over packages from context -->
+    <div class="package-card">
+      <h3>Basic (1 Hour)</h3>
+      <p class="price">TZS 500</p>
+      <ul>
+        <li>1 hour unlimited access</li>
+        <li>Up to 5 Mbps</li>
+      </ul>
+      <button class="btn btn-buy" data-package-id="1">Buy Now</button>
+    </div>
+  </div>
+
+  <!-- Confirmation modal -->
+  <div id="confirm-modal" role="dialog" aria-modal="true" style="display:none;">
+    <div class="modal-content">
+      <h2>Confirm Payment</h2>
+      <p>You are about to pay <strong id="confirm-amount"></strong> via PesaPal.</p>
+      <button id="btn-confirm-pay" class="btn btn-primary">Pay Now</button>
+      <button id="btn-cancel" class="btn btn-secondary">Cancel</button>
+    </div>
+  </div>
+</div>
 {% endblock %}
