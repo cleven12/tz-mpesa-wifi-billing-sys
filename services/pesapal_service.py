@@ -11,6 +11,14 @@ SANDBOX_BASE_URL = "https://cybqa.pesapal.com/pesapalv3"
 LIVE_BASE_URL = "https://pay.pesapal.com/v3"
 
 
+
+AUTH_ENDPOINT = "/api/Auth/RequestToken"
+IPN_REGISTER_ENDPOINT = "/api/URLSetup/RegisterIPN"
+IPN_LIST_ENDPOINT = "/api/URLSetup/GetIpnList"
+ORDER_ENDPOINT = "/api/Transactions/SubmitOrderRequest"
+STATUS_ENDPOINT = "/api/Transactions/GetTransactionStatus"
+
+
 class PesapalService:
     """Wraps the PesaPal v3 REST API (authentication, orders, IPN, status)."""
 
