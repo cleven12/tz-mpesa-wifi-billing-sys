@@ -1,11 +1,11 @@
-/*
- * admin.css — Styles exclusive to the admin dashboard
- *
- * Sections to implement:
- *   - Sidebar navigation
- *   - Stats cards grid
- *   - Data tables (sortable, striped)
- *   - Pagination controls
- *   - Admin action buttons
- *   - Charts container
+/* admin.css — Admin dashboard stylesheet
+ * Sections: Layout, Sidebar, Tables, Stats Grid
  */
+
+:root {
+  --admin-sidebar-width: 240px;
+  --admin-sidebar-bg: #1e2a38;
+  --admin-sidebar-text: #cdd6e0;
+  --admin-sidebar-active: var(--color-primary);
+  --admin-header-height: 60px;
+}
