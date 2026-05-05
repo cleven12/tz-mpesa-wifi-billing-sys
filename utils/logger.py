@@ -23,3 +23,7 @@ def setup_request_logging(app) -> None:
         app: Flask application instance.
     """
     raise NotImplementedError("TODO")
+
+REQUEST_LOG_FORMAT = (
+    "%(asctime)s | %(method)s %(path)s | %(status)s | %(duration).1fms"
+)
