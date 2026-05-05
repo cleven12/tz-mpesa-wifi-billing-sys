@@ -58,6 +58,19 @@ class PaymentService:
         """
         raise NotImplementedError("TODO")
 
+    def get_package_by_id(self, package_id: int) -> dict:
+        """Return package dict from WIFI_PACKAGES or raise ValueError for unknown ID."""
+        raise NotImplementedError("TODO")
+
+    def get_user_payment_history(self, user_id: int, page: int = 1, per_page: int = 20) -> dict:
+        """Return paginated payment history for a user."""
+        raise NotImplementedError("TODO")
+
+    def send_confirmation_sms(self, phone: str, package_name: str,
+                               confirmation_code: str) -> None:
+        """Send payment confirmation SMS via SMSService."""
+        raise NotImplementedError("TODO")
+
     def expire_timed_out_payments(self) -> int:
         """Mark all pending payments older than PAYMENT_TIMEOUT_MINUTES as 'timeout'.
 
