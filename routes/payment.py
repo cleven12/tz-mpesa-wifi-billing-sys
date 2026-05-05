@@ -47,3 +47,23 @@ def payment_history():
 def list_packages():
     """Return the available WiFi packages and prices."""
     raise NotImplementedError("TODO")
+
+
+@payment_bp.route("/packages", methods=["GET"])
+def list_packages():
+    """Return available WiFi packages with prices.
+
+    No authentication required — shown on the splash page.
+    Returns: [{id, name, duration_seconds, price, currency}]
+    """
+    raise NotImplementedError("TODO")
+
+
+@payment_bp.route("/status/<string:order_tracking_id>", methods=["GET"])
+def payment_status(order_tracking_id: str):
+    """Poll status of a PesaPal payment by order_tracking_id.
+
+    Client should poll every 5 seconds until status != pending.
+    Returns: {status, confirmation_code?, error?}
+    """
+    raise NotImplementedError("TODO")
