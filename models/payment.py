@@ -58,5 +58,10 @@ class Payment(db.Model):
         """True when status is timeout or expires_at is in the past."""
         raise NotImplementedError("TODO")
 
+    @staticmethod
+    def calculate_expiry(timeout_minutes: int = 5):
+        """Return a UTC datetime *timeout_minutes* from now."""
+        raise NotImplementedError("TODO")
+
     def __repr__(self) -> str:
         return f"<Payment {self.merchant_reference} [{self.status}]>"
