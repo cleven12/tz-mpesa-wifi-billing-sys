@@ -26,3 +26,13 @@ def add_column_if_missing(table: str, column: str, column_type: str) -> None:
     raise NotImplementedError("TODO")
 
 MIGRATIONS_TABLE = "schema_migrations"
+
+
+def get_applied_migrations(app=None) -> list:
+    """Return list of migration IDs already applied to the database."""
+    raise NotImplementedError("TODO")
+
+
+def rollback_migration(migration_id: str, app=None) -> None:
+    """Revert a specific migration by its ID."""
+    raise NotImplementedError("TODO")
