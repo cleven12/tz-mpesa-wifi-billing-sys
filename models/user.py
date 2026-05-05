@@ -57,5 +57,18 @@ class User(db.Model):
         """Return user by primary key or None."""
         raise NotImplementedError("TODO")
 
+    @property
+    def is_active(self) -> bool:
+        """True when status == STATUS_ACTIVE."""
+        raise NotImplementedError("TODO")
+
+    def suspend(self) -> None:
+        """Set status to suspended and commit."""
+        raise NotImplementedError("TODO")
+
+    def activate(self) -> None:
+        """Restore status to active and commit."""
+        raise NotImplementedError("TODO")
+
     def __repr__(self) -> str:
         return f"<User {self.phone} [{self.status}]>"
