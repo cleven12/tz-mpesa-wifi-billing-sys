@@ -42,3 +42,15 @@ def make_user_payload(phone: str = VALID_PHONE, name: str = "Test User") -> dict
 def make_payment_payload(package_id: int = 1) -> dict:
     """Return a minimal payment initiation payload."""
     raise NotImplementedError("TODO")
+
+VALID_PESAPAL_IPN_PARAMS = {
+    "OrderTrackingId": "test-tracking-id-001",
+    "OrderMerchantReference": "WIFI-20260505-TEST01",
+    "OrderNotificationType": "IPNCHANGE",
+}
+
+SAMPLE_PACKAGES = [
+    {"id": 1, "name": "Basic (1 Hour)",   "price": 500,  "duration_seconds": 3600},
+    {"id": 2, "name": "Standard (1 Day)", "price": 1000, "duration_seconds": 86400},
+    {"id": 3, "name": "Premium (7 Days)", "price": 4000, "duration_seconds": 604800},
+]
