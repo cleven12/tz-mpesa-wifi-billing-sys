@@ -55,3 +55,18 @@ def paginate(query, page: int, per_page: int) -> dict:
 
 TZS = "TZS"
 KES = "KES"
+
+
+def format_currency(amount: float, currency: str = TZS) -> str:
+    """Return amount formatted as e.g. 'TZS 1,500.00'."""
+    raise NotImplementedError("TODO")
+
+
+def sanitize_phone(phone: str) -> str:
+    """Strip spaces/dashes and normalise to E.164 +255XXXXXXXXX format."""
+    raise NotImplementedError("TODO")
+
+
+def parse_duration(seconds: int) -> str:
+    """Convert seconds to human-readable string (e.g. '1 hour', '3 days')."""
+    raise NotImplementedError("TODO")
