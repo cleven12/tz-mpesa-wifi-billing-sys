@@ -32,6 +32,9 @@ class PesapalService:
         self._token: Optional[str] = None
         self._token_expiry: Optional[datetime] = None
 
+    IPN_TYPE_GET = "GET"
+    IPN_TYPE_POST = "POST"
+
     PAYMENT_STATUS_COMPLETED = "Completed"
     PAYMENT_STATUS_PENDING = "Pending"
     PAYMENT_STATUS_FAILED = "Failed"
