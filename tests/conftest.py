@@ -39,6 +39,24 @@ def client(app):
 
 
 @pytest.fixture
+def sample_user(db):
+    """Create and return a persisted User instance for tests."""
+    raise NotImplementedError("TODO")
+
+
+@pytest.fixture
+def sample_payment(db, sample_user):
+    """Create and return a pending Payment instance for tests."""
+    raise NotImplementedError("TODO")
+
+
+@pytest.fixture
+def pesapal_mock(monkeypatch):
+    """Monkeypatch PesapalService so no real HTTP calls are made."""
+    raise NotImplementedError("TODO")
+
+
+@pytest.fixture
 def auth_headers(client):
     """JWT headers for a regular user. Returns Authorization dict."""
     raise NotImplementedError("TODO: register user, login, return headers")
