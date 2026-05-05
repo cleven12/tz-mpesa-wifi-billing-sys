@@ -23,3 +23,18 @@ class DatabaseService:
     def health_check() -> bool:
         """Return True when the DB connection is alive."""
         raise NotImplementedError("TODO")
+
+    @staticmethod
+    def get_or_404(model, pk: int):
+        """Return model instance by primary key or abort with 404."""
+        raise NotImplementedError("TODO")
+
+    @staticmethod
+    def paginate(query, page: int, per_page: int) -> dict:
+        """Execute *query* with pagination. Return {items, total, page, pages}."""
+        raise NotImplementedError("TODO")
+
+    @staticmethod
+    def bulk_insert(records: list) -> None:
+        """Commit a list of model instances in one transaction."""
+        raise NotImplementedError("TODO")
