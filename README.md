@@ -21,3 +21,21 @@ automatically whitelisted on the router — granting timed internet access.
 - Africa's Talking SMS notifications
 - Admin dashboard (users, payments, devices, audit log)
 - ngrok tunnel for local webhook development
+
+## Architecture
+
+```
+Browser / Mobile App
+        │
+        ▼
+  Flask REST API  ──▶  PesaPal v3  ──▶  Customer's Phone (M-Pesa)
+        │                   │
+        │       IPN callback (POST /webhook/pesapal)
+        │                   │
+        ▼                   ▼
+   PostgreSQL         PaymentService
+                           │
+                    DeviceService ──▶  ZLT X17U Router (SSH)
+                                            │
+                                     MAC Whitelist added
+```
