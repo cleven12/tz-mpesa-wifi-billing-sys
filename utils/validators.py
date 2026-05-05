@@ -33,3 +33,9 @@ def validate_amount(amount, min_amount: float = 10, max_amount: float = 10000) -
 def sanitize_string(value: str, max_length: int = 255) -> str:
     """Strip whitespace and truncate *value* to *max_length* characters."""
     raise NotImplementedError("TODO")
+
+import re
+
+PHONE_TZ_REGEX = re.compile(r"^\+255[67]\d{8}$")
+PHONE_KE_REGEX = re.compile(r"^\+2547\d{8}$")
+MAC_REGEX = re.compile(r"^([0-9A-Fa-f]{2}:){5}[0-9A-Fa-f]{2}$")
