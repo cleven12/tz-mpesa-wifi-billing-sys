@@ -32,6 +32,11 @@ class PesapalService:
         self._token: Optional[str] = None
         self._token_expiry: Optional[datetime] = None
 
+    PAYMENT_STATUS_COMPLETED = "Completed"
+    PAYMENT_STATUS_PENDING = "Pending"
+    PAYMENT_STATUS_FAILED = "Failed"
+    PAYMENT_STATUS_INVALID = "Invalid"
+
     def authenticate(self) -> bool:
         """Fetch a bearer token from PesaPal and cache it.
 
