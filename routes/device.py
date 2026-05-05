@@ -1,5 +1,8 @@
 """Device / MAC-address routes — /api/devices/..."""
 
+# MAC address format: AA:BB:CC:DD:EE:FF  (colon-separated, uppercase hex)
+# Validated by utils.validators.validate_mac_address before any router call.
+
 from flask import Blueprint, request, jsonify
 
 device_bp = Blueprint("device", __name__, url_prefix="/api/devices")
