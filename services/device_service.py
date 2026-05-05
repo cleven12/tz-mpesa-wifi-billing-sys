@@ -7,6 +7,9 @@ logger = logging.getLogger(__name__)
 
 
 class DeviceService:
+
+    MAX_DEVICES_PER_USER = 5
+
     """Syncs Device records with the router MAC whitelist."""
 
     def __init__(self) -> None:
