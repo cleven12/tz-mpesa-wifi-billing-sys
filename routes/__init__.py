@@ -1,4 +1,12 @@
-"""Routes package. All blueprints are imported and re-exported from here."""
+"""Routes package.
+
+Blueprint URL prefixes:
+    auth_bp    → /api/auth
+    payment_bp → /api/payment
+    device_bp  → /api/devices
+    admin_bp   → /api/admin
+    webhook_bp → /webhook
+"""
 
 from routes.auth import auth_bp
 from routes.payment import payment_bp
