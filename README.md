@@ -61,3 +61,17 @@ cp .env.example .env          # fill in your credentials
 python3 -c "from database.init_db import init_db; init_db()"
 python3 app.py
 ```
+
+## API Endpoints
+
+| Method | Endpoint | Auth | Description |
+|---|---|---|---|
+| POST | `/api/auth/register` | — | Register new user |
+| POST | `/api/auth/login` | — | Login, get JWT |
+| GET | `/api/auth/profile` | JWT | Get profile |
+| POST | `/api/payment/initiate` | JWT | Start PesaPal payment |
+| GET | `/api/payment/status/<id>` | JWT | Poll payment status |
+| GET | `/api/payment/packages` | — | List WiFi packages |
+| GET | `/api/devices` | JWT | List user devices |
+| POST | `/api/devices/whitelist` | JWT | Whitelist MAC |
+| GET | `/webhook/pesapal` | — | PesaPal IPN callback |
