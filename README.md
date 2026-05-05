@@ -49,3 +49,15 @@ Browser / Mobile App
 | ngrok | 3.x |
 | ZLT X17U router | firmware ≥ 1.3 |
 | PesaPal account | sandbox or live |
+
+## Quick Start
+
+```bash
+git clone https://github.com/cleven12/tz-mpesa-wifi-billing-sys.git
+cd tz-mpesa-wifi-billing-sys
+python3 -m venv venv && source venv/bin/activate
+pip install -r requirements.txt
+cp .env.example .env          # fill in your credentials
+python3 -c "from database.init_db import init_db; init_db()"
+python3 app.py
+```
