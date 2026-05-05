@@ -75,3 +75,13 @@ python3 app.py
 | GET | `/api/devices` | JWT | List user devices |
 | POST | `/api/devices/whitelist` | JWT | Whitelist MAC |
 | GET | `/webhook/pesapal` | — | PesaPal IPN callback |
+
+## Payment Flow
+
+1. Customer selects a WiFi package → `POST /api/payment/initiate`
+2. API creates pending `Payment` row and submits order to PesaPal
+3. Customer is redirected to PesaPal hosted payment page
+4. Customer pays via M-Pesa / Tigo / Airtel on their phone
+5. PesaPal calls `GET /webhook/pesapal?OrderTrackingId=…`
+6. API verifies status via `GetTransactionStatus` API call
+7. On success: MAC address whitelisted on router via SSH → SMS sent
