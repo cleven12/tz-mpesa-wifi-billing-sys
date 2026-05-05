@@ -52,3 +52,6 @@ def paginate(query, page: int, per_page: int) -> dict:
         dict with keys: items (list), total, page, pages, per_page.
     """
     raise NotImplementedError("TODO")
+
+TZS = "TZS"
+KES = "KES"
