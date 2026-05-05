@@ -24,3 +24,5 @@ def add_column_if_missing(table: str, column: str, column_type: str) -> None:
         column_type: SQL type string e.g. 'VARCHAR(100)'.
     """
     raise NotImplementedError("TODO")
+
+MIGRATIONS_TABLE = "schema_migrations"
