@@ -7,6 +7,11 @@ from typing import Optional
 logger = logging.getLogger(__name__)
 
 
+
+class RouterConnectionError(Exception):
+    """Raised when SSH connection to the router fails."""
+
+
 class RouterService:
     """SSH-based controller for the ZLT X17U router."""
 
