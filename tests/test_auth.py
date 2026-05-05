@@ -5,6 +5,9 @@ import pytest
 
 class TestRegister:
     def test_register_success(self, client, db):
+        # Arrange
+        # Act
+        # Assert
         raise NotImplementedError("TODO")
 
     def test_register_duplicate_phone(self, client, db):
