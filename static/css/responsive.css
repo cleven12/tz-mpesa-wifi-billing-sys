@@ -8,3 +8,30 @@
   --bp-lg: 1024px;
   --bp-xl: 1280px;
 }
+
+/* ── Responsive utilities ────────────────────────────────────────────────────── */
+@media (max-width: 768px) {
+  .admin-layout {
+    grid-template-columns: 1fr;
+  }
+  .admin-sidebar {
+    /* TODO: collapsible hamburger menu */
+  }
+  .stats-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+  .packages-grid {
+    /* TODO: single column on mobile */
+  }
+}
+
+@media (max-width: 480px) {
+  .stats-grid {
+    grid-template-columns: 1fr;
+  }
+  .data-table {
+    /* TODO: horizontal scroll on small screens */
+    display: block;
+    overflow-x: auto;
+  }
+}
