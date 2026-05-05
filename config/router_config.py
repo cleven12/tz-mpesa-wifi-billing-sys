@@ -4,6 +4,13 @@ import os
 from dataclasses import dataclass
 
 
+DEFAULT_SSH_PORT = 22
+DEFAULT_SSH_TIMEOUT = 10
+SSH_RETRY_DELAY = 2
+MAX_RETRIES = 3
+DEFAULT_BANDWIDTH_LIMIT_MBPS = 5
+
+
 @dataclass
 class RouterConfig:
     host: str = ""
