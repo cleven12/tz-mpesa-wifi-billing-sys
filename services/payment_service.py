@@ -71,6 +71,11 @@ class PaymentService:
         """Send payment confirmation SMS via SMSService."""
         raise NotImplementedError("TODO")
 
+    @staticmethod
+    def generate_merchant_reference() -> str:
+        """Return a unique merchant reference string (e.g. WIFI-20260505-XXXXXX)."""
+        raise NotImplementedError("TODO")
+
     def expire_timed_out_payments(self) -> int:
         """Mark all pending payments older than PAYMENT_TIMEOUT_MINUTES as 'timeout'.
 
