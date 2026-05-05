@@ -66,6 +66,18 @@ class UserService:
         """
         raise NotImplementedError("TODO")
 
+    def get_or_404(self, user_id: int):
+        """Return User by id or raise 404 HTTPException."""
+        raise NotImplementedError("TODO")
+
+    def update_balance(self, user_id: int, delta: float) -> None:
+        """Add *delta* (positive or negative) to user account_balance."""
+        raise NotImplementedError("TODO")
+
+    def change_password(self, user_id: int, old_password: str, new_password: str) -> None:
+        """Verify old_password then update hash. Raise ValueError on mismatch."""
+        raise NotImplementedError("TODO")
+
     def suspend(self, user_id: int, admin_id: int) -> bool:
         """Set user status to 'suspended' and write an AdminLog entry."""
         raise NotImplementedError("TODO")
