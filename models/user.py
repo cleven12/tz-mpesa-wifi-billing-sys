@@ -7,6 +7,10 @@ from app import db
 class User(db.Model):
     __tablename__ = "users"
 
+    STATUS_ACTIVE = "active"
+    STATUS_SUSPENDED = "suspended"
+    STATUS_DELETED = "deleted"
+
     id = db.Column(db.Integer, primary_key=True)
     phone = db.Column(db.String(20), unique=True, nullable=False, index=True)
     name = db.Column(db.String(100), nullable=False)
@@ -32,7 +36,7 @@ class User(db.Model):
     )
 
     def set_password(self, password: str) -> None:
-        """Hash *password* and store in password_hash."""
+        """Hash *password* with bcrypt and store in password_hash."""
         raise NotImplementedError("TODO")
 
     def check_password(self, password: str) -> bool:
@@ -40,8 +44,8 @@ class User(db.Model):
         raise NotImplementedError("TODO")
 
     def to_dict(self) -> dict:
-        """Return a JSON-serialisable dictionary representation."""
+        """Return a JSON-serialisable representation (never include password_hash)."""
         raise NotImplementedError("TODO")
 
     def __repr__(self) -> str:
-        return f"<User {self.phone}>"
+        return f"<User {self.phone} [{self.status}]>"
