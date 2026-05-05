@@ -7,6 +7,15 @@ from app import db
 class Device(db.Model):
     __tablename__ = "devices"
 
+    STATUS_ACTIVE = "active"
+    STATUS_WHITELISTED = "whitelisted"
+    STATUS_BLOCKED = "blocked"
+
+    DEVICE_TYPE_MOBILE = "mobile"
+    DEVICE_TYPE_LAPTOP = "laptop"
+    DEVICE_TYPE_TABLET = "tablet"
+    DEVICE_TYPE_OTHER = "other"
+
     id = db.Column(db.Integer, primary_key=True)
     user_id = db.Column(db.Integer, db.ForeignKey("users.id"), nullable=False, index=True)
     mac_address = db.Column(db.String(17), unique=True, nullable=False, index=True)
