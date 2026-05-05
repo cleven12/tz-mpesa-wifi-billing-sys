@@ -38,5 +38,15 @@ class Payment(db.Model):
         """Return a JSON-serialisable dictionary representation."""
         raise NotImplementedError("TODO")
 
+    @classmethod
+    def get_by_tracking_id(cls, order_tracking_id: str) -> "Payment | None":
+        """Find a Payment by PesaPal order_tracking_id."""
+        raise NotImplementedError("TODO")
+
+    @classmethod
+    def get_by_reference(cls, merchant_reference: str) -> "Payment | None":
+        """Find a Payment by our internal merchant_reference."""
+        raise NotImplementedError("TODO")
+
     def __repr__(self) -> str:
         return f"<Payment {self.merchant_reference} [{self.status}]>"
