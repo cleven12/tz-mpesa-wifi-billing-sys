@@ -14,6 +14,13 @@ from flask import Blueprint, request, jsonify
 auth_bp = Blueprint("auth", __name__, url_prefix="/api/auth")
 
 
+# POST /register  body: {phone: str, password: str, name: str, email?: str}
+# POST /login      body: {phone: str, password: str}
+# GET  /profile    header: Authorization: Bearer <token>
+# PUT  /profile    body: {name?: str, email?: str}
+# POST /logout     header: Authorization: Bearer <token>
+# POST /refresh    header: Authorization: Bearer <refresh_token>
+
 @auth_bp.route("/register", methods=["POST"])
 def register():
     """Register a new user.
