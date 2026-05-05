@@ -43,3 +43,22 @@ def get_device(device_id: int):
     Requires Authorization: Bearer <token>
     """
     raise NotImplementedError("TODO")
+
+
+@device_bp.route("/bulk-whitelist", methods=["POST"])
+def bulk_whitelist():
+    """Whitelist multiple MAC addresses in one SSH call.
+
+    Body: {devices: [{mac_address: str, device_name?: str}]}
+    Returns: {whitelisted: int, errors: []}
+    """
+    raise NotImplementedError("TODO")
+
+
+@device_bp.route("/<int:device_id>/session", methods=["GET"])
+def device_session(device_id: int):
+    """Return session info for a device (expires_at, remaining_seconds).
+
+    Returns: {mac_address, status, session_expires_at, remaining_seconds}
+    """
+    raise NotImplementedError("TODO")
