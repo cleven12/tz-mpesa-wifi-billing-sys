@@ -95,6 +95,14 @@ class RouterService:
         """
         raise NotImplementedError("TODO")
 
+    def _parse_whitelist_output(self, raw: str) -> list:
+        """Parse router CLI output into a list of MAC address strings."""
+        raise NotImplementedError("TODO")
+
+    def test_connection(self) -> bool:
+        """Return True when SSH login succeeds. Used for health checks."""
+        raise NotImplementedError("TODO")
+
     def _exec(self, client, command: str) -> tuple:
         """Run *command* on *client* and return (stdout_str, stderr_str).
 
