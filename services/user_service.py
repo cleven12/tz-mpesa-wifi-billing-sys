@@ -7,6 +7,10 @@ logger = logging.getLogger(__name__)
 
 
 class UserService:
+
+    MAX_LOGIN_ATTEMPTS = 5
+    LOCKOUT_MINUTES = 15
+
     """Handles user registration, authentication, and profile management."""
 
     def register(
