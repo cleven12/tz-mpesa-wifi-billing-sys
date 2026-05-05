@@ -32,5 +32,16 @@ class AdminLog(db.Model):
         """Return a JSON-serialisable dictionary representation."""
         raise NotImplementedError("TODO")
 
+    @classmethod
+    def log_action(cls, admin_id: int, action: str, details: dict = None,
+                   affected_user_id: int = None, status: str = "success") -> "AdminLog":
+        """Create and persist an audit log entry."""
+        raise NotImplementedError("TODO")
+
+    @classmethod
+    def get_recent(cls, limit: int = 50) -> list:
+        """Return the most recent *limit* log entries ordered by created_at desc."""
+        raise NotImplementedError("TODO")
+
     def __repr__(self) -> str:
         return f"<AdminLog {self.action} by admin {self.admin_id}>"
