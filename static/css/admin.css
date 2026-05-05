@@ -9,3 +9,46 @@
   --admin-sidebar-active: var(--color-primary);
   --admin-header-height: 60px;
 }
+
+/* ── Admin Layout ───────────────────────────────────────────────────────────── */
+.admin-layout {
+  display: grid;
+  grid-template-columns: var(--admin-sidebar-width) 1fr;
+  min-height: 100vh;
+}
+
+.admin-sidebar {
+  background: var(--admin-sidebar-bg);
+  color: var(--admin-sidebar-text);
+  padding: var(--space-lg) 0;
+}
+
+.admin-sidebar a {
+  color: var(--admin-sidebar-text);
+  display: block;
+  padding: var(--space-sm) var(--space-lg);
+}
+
+.admin-sidebar a:hover,
+.admin-sidebar a.active {
+  background: rgba(255,255,255,.1);
+  color: var(--color-surface);
+}
+
+.admin-main {
+  padding: var(--space-lg);
+}
+
+/* ── Stats Grid ─────────────────────────────────────────────────────────────── */
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: var(--space-md);
+  margin-bottom: var(--space-xl);
+}
+
+.stat-value {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--color-primary);
+}
