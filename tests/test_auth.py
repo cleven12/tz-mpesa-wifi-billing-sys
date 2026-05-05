@@ -40,3 +40,12 @@ class TestProfile:
 
     def test_update_profile(self, client, auth_headers):
         raise NotImplementedError("TODO")
+
+
+class TestDuplicateRegistration:
+    def test_register_duplicate_phone_returns_409(self, client, sample_user):
+        """Registering with an already-taken phone number returns 409 Conflict."""
+        # Arrange: sample_user already has a phone registered
+        # Act: POST /api/auth/register with the same phone
+        # Assert: response.status_code == 409
+        raise NotImplementedError("TODO")
