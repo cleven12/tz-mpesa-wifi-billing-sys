@@ -36,3 +36,8 @@ SAMPLE_ADMIN = {
     "password": "changeme123",
     "status": "active",
 }
+
+
+def is_already_seeded() -> bool:
+    """Return True when at least one user exists (prevents double-seeding)."""
+    raise NotImplementedError("TODO")
