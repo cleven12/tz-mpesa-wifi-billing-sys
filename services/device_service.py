@@ -61,3 +61,15 @@ class DeviceService:
             int: Number of devices revoked.
         """
         raise NotImplementedError("TODO")
+
+    def check_session_validity(self, device_id: int) -> bool:
+        """Return True when device session has not expired."""
+        raise NotImplementedError("TODO")
+
+    def list_active_sessions(self, user_id: int) -> list:
+        """Return all devices with an unexpired session for *user_id*."""
+        raise NotImplementedError("TODO")
+
+    def bulk_revoke(self, user_id: int) -> int:
+        """Revoke all whitelisted devices for a user. Return count removed."""
+        raise NotImplementedError("TODO")
