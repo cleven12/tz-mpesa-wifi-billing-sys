@@ -135,6 +135,13 @@ class PesapalService:
         """Assemble the dict body for SubmitOrderRequest."""
         raise NotImplementedError("TODO")
 
+    def _parse_status_response(self, data: dict) -> dict:
+        """Normalise a GetTransactionStatus response dict.
+
+        Returns keys: status, amount, confirmation_code, payment_method.
+        """
+        raise NotImplementedError("TODO")
+
     def handle_ipn_callback(self, order_tracking_id: str, order_merchant_reference: str) -> dict:
         """Process an incoming IPN notification from PesaPal.
 
