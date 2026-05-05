@@ -28,3 +28,13 @@ if __name__ == "__main__":
     init_db()
 
 SCHEMA_VERSION = 1
+
+
+def check_schema_version(app=None) -> int:
+    """Return the current schema version stored in the database."""
+    raise NotImplementedError("TODO")
+
+
+def backup_before_drop(backup_path: str) -> None:
+    """Create a SQLite backup at *backup_path* before dropping tables (dev only)."""
+    raise NotImplementedError("TODO")
