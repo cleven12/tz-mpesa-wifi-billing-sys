@@ -100,3 +100,24 @@ ROUTER_SSH_PASSWORD
 ```
 
 See `.env.example` for the full reference.
+
+## Development with ngrok
+
+```bash
+bash scripts/deploy_ngrok.sh
+# Sets PESAPAL_IPN_URL and PESAPAL_CALLBACK_URL automatically
+```
+
+## Running Tests
+
+```bash
+pytest tests/ -v
+```
+
+## Contributing
+
+See [CONTRIBUTING.md](CONTRIBUTING.md).
+
+## License
+
+MIT © 2026 Cleven
