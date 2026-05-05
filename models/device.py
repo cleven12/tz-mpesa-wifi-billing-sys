@@ -42,5 +42,15 @@ class Device(db.Model):
         """Return a JSON-serialisable dictionary representation."""
         raise NotImplementedError("TODO")
 
+    @classmethod
+    def get_by_mac(cls, mac_address: str) -> "Device | None":
+        """Find device by MAC address (case-insensitive)."""
+        raise NotImplementedError("TODO")
+
+    @classmethod
+    def get_active_for_user(cls, user_id: int) -> list:
+        """Return all whitelisted / active devices for a user."""
+        raise NotImplementedError("TODO")
+
     def __repr__(self) -> str:
         return f"<Device {self.mac_address}>"
