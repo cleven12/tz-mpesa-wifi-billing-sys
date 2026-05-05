@@ -20,5 +20,15 @@ class Transaction(db.Model):
         """Return a JSON-serialisable dictionary representation."""
         raise NotImplementedError("TODO")
 
+    @classmethod
+    def get_by_payment_id(cls, payment_id: int) -> "Transaction | None":
+        """Return transaction for a given payment ID."""
+        raise NotImplementedError("TODO")
+
+    @classmethod
+    def get_by_confirmation_code(cls, code: str) -> "Transaction | None":
+        """Return transaction by PesaPal confirmation code."""
+        raise NotImplementedError("TODO")
+
     def __repr__(self) -> str:
         return f"<Transaction payment_id={self.payment_id}>"
