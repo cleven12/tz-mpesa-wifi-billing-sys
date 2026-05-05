@@ -4,6 +4,10 @@ import os
 from dataclasses import dataclass
 
 
+SANDBOX_URL = "https://cybqa.pesapal.com/pesapalv3"
+LIVE_URL = "https://pay.pesapal.com/v3"
+
+
 @dataclass
 class PesapalConfig:
     consumer_key: str = ""
