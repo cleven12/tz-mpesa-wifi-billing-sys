@@ -7,6 +7,14 @@ from app import db
 class AdminLog(db.Model):
     __tablename__ = "admin_logs"
 
+    ACTION_LOGIN = "admin_login"
+    ACTION_SUSPEND_USER = "suspend_user"
+    ACTION_ACTIVATE_USER = "activate_user"
+    ACTION_BLOCK_DEVICE = "block_device"
+    ACTION_WHITELIST_DEVICE = "whitelist_device"
+    ACTION_REFUND = "refund"
+    ACTION_EXPORT = "export_data"
+
     id = db.Column(db.Integer, primary_key=True)
     admin_id = db.Column(db.Integer, db.ForeignKey("users.id"), nullable=False, index=True)
     action = db.Column(db.String(255), nullable=False, index=True)
