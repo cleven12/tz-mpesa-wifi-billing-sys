@@ -1,5 +1,36 @@
 {% extends "base.html" %}
-{% block title %}My Profile{% endblock %}
+{% block title %}My Profile — WiFi Billing{% endblock %}
 {% block content %}
-  <!-- TODO: User details form (name/email), payment history list, connected devices list -->
+<div class="profile-container">
+  <h1>My Profile</h1>
+
+  <form method="POST" action="{{ url_for('auth.profile') }}" id="profile-form">
+    <div class="form-group">
+      <label for="name">Full Name</label>
+      <input type="text" id="name" name="name"
+             value="{{ current_user.name if current_user else '' }}" required>
+    </div>
+    <div class="form-group">
+      <label for="email">Email (optional)</label>
+      <input type="email" id="email" name="email"
+             value="{{ current_user.email if current_user else '' }}">
+    </div>
+    <button type="submit" class="btn btn-primary">Save Changes</button>
+  </form>
+
+  <section>
+    <h2>Connected Devices</h2>
+    <table class="data-table" id="devices-table">
+      <thead>
+        <tr><th>Device</th><th>MAC</th><th>Status</th><th>Session Expires</th><th>Action</th></tr>
+      </thead>
+      <tbody><!-- populated by main.js --></tbody>
+    </table>
+  </section>
+
+  <section>
+    <h2>Account Balance</h2>
+    <p>Balance: <strong id="account-balance">TZS —</strong></p>
+  </section>
+</div>
 {% endblock %}
