@@ -85,3 +85,18 @@ python3 app.py
 5. PesaPal calls `GET /webhook/pesapal?OrderTrackingId=…`
 6. API verifies status via `GetTransactionStatus` API call
 7. On success: MAC address whitelisted on router via SSH → SMS sent
+
+## Configuration
+
+Copy `.env.example` to `.env` and fill in:
+
+```
+PESAPAL_CONSUMER_KEY    # from PesaPal merchant dashboard
+PESAPAL_CONSUMER_SECRET
+PESAPAL_ENVIRONMENT     # sandbox | production
+ROUTER_HOST             # ZLT X17U local IP (default 192.168.1.1)
+ROUTER_SSH_USER
+ROUTER_SSH_PASSWORD
+```
+
+See `.env.example` for the full reference.
