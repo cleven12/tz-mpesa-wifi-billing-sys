@@ -47,5 +47,10 @@ class User(db.Model):
         """Return a JSON-serialisable representation (never include password_hash)."""
         raise NotImplementedError("TODO")
 
+    @classmethod
+    def get_by_phone(cls, phone: str) -> "User | None":
+        """Look up a user by phone number, return None if not found."""
+        raise NotImplementedError("TODO")
+
     def __repr__(self) -> str:
         return f"<User {self.phone} [{self.status}]>"
