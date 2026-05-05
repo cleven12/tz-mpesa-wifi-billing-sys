@@ -38,3 +38,13 @@ class TestMpesaCallback:
 
     def test_callback_invalid_payload(self, client):
         raise NotImplementedError("TODO")
+
+
+class TestPackages:
+    def test_list_packages_returns_200(self, client):
+        """GET /api/payment/packages returns a list of package objects."""
+        raise NotImplementedError("TODO")
+
+    def test_packages_have_required_fields(self, client):
+        """Each package has id, name, price, duration_seconds, currency."""
+        raise NotImplementedError("TODO")
