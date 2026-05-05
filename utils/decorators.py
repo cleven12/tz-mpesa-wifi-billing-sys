@@ -34,3 +34,13 @@ def json_required(fn):
     def wrapper(*args, **kwargs):
         raise NotImplementedError("TODO")
     return wrapper
+
+
+def validate_json(f):
+    """Abort 400 when the request Content-Type is not application/json."""
+    raise NotImplementedError("TODO")
+
+
+def device_required(f):
+    """Verify the requesting device's session is still valid before proceeding."""
+    raise NotImplementedError("TODO")
